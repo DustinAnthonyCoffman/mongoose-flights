@@ -7,5 +7,12 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <ul>
+        <% flights.forEach(function(s, idx) { %>
+          <li><%=s%></li>
+       <% }) %>
+  
+      </ul>
   </body>
 </html>
+
