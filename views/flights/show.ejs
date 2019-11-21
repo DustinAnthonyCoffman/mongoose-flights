@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Details</title>
+</head>
+<body>
+    <h1> <%= title %> </h1>
+    
+    <ul>
+
+        <li>City: <%= flights.airport %> </li> <br>  
+        <li>Airline: <%= flights.airline %>  </li> <br> 
+        <li> Flight Number: <%= flights.flightNum %>  </li> <br>
+        <li>Departure Time: <%= flights.departs %>  </li> <br>
+     
+        <%if (flights.destination.length != 0) { %>
+        <% flights.destination.forEach(function(s) { %>
+            <p>New Destination: </p>
+               <li><%=s.airport %></li>
+               <li><%=s.arrival %></li>
+
+           <% }) %>
+
+            <% } %>
+    
+    </ul>
+
+    <form action="/flights/<%=flights._id %>/details" method="POST">
+        
+     <h1>Add Destination For Current Flight</h1>   
+     <select name="airport" id="">
+            <option value="AUS">Austin</option>
+            <option value="DAL">Dallas</option>
+            <option value="LAX">Los Angeles</option>
+            <option value="SAN">San Diego</option>
+            <option value="SEA">Seattle</option>
+        </select>
+       <h1>Add Arrival Time For New Destination</h1>
+       <input type="date" name="arrival">Date</input>
+        <button type='submit'>Submit Flight</button>
+    </form>
+   
+
+</body>
+</html>

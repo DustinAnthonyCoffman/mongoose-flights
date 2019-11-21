@@ -7,7 +7,7 @@
     <title>Add Flight</title>
 </head>
 <body>
-<!--display list of flights in a table click details FLIGHT LIST-->>
+
 <a href="/flights/new">Add Flight</a>
 <table>
     <thead>
@@ -15,18 +15,22 @@
      <th>Airline</th>
      <th>Flight Number</th>
      <th>Departure</th>
+
     </thead>
+    <tbody>
+   
     <% flights.forEach(function(s) { %>
-        <tbody>
             <tr>
-                <td>    <%=s.airport%>  </td>
-                <td>    <%=s.airline%>  </td>
-                <td>    <%=s.flightNum%>    </td>
-                <td>    <%=s.departs.toDateString()%>    </td>
+                <td><%= s.airport %></td>
+                <td><%= s.airline %></td>
+                <td><%= s.flightNum %></td>
+                <td><%= s.departs%></td>
+                <td><a href="/flights/<%= s._id %>">Details</a></td>
             </tr>
      <%   }) %>
         
     </tbody>
+
 </table>
 
 </body>
