@@ -1,16 +1,18 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: cadetblue;
+  background-image: url('https://i.imgur.com/hk6PiUd.jpg');
+  background-position-x: 2rem;
+  background-repeat: no-repeat;
 }
 
 a {
   color: black;
 }
-nav {
-  background-color: #00B7FF;
+header {
+  background-image: 'https://i.imgur.com/qhaWBz4.jpg';
 }
+
 footer {
-  background-color: darkblue;
-  border: solid black;
+  background-color: whitesmoke;
 }
