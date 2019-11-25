@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tickets</title>
+</head>
+<body>
+    <h1>Tickets</h1>    
+
+<form action="/flights/<%=flightId%>/tickets" method="POST">
+    <!--you create the id url relationship, we're only doing this full path to save the id, but this goes to the tickets router-->
+    <input name="seat" required pattern="[A-F][1-9]\d?">Seat: </input>
+    <input type="number" name="price">Price: </input> <br>
+    <button type='submit'>Submit</button>
+</form>
+</body>
+</html>

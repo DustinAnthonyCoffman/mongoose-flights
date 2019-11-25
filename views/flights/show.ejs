@@ -25,11 +25,12 @@
            <% }) %>
 
             <% } %>
-    
-    </ul>
+        </ul>
 
-    <form action="/flights/<%=flights._id %>/details" method="POST">
-        
+     
+
+    <form action="/flights/<%=flights._id %>/destinations" method="POST"> <!--this is not going to another url/view its sending a post request the destinations router which puts data in the database and then renders the show page (details)-->
+        <!--this action is sending info to a router/controller not a page-->
      <h1>Add Destination For Current Flight</h1>   
      <select name="airport" id="">
             <option value="AUS">Austin</option>
@@ -42,7 +43,27 @@
        <input type="date" name="arrival">Date</input>
         <button type='submit'>Submit Flight</button>
     </form>
-   
 
+    <a href="<%=flights._id %>/tickets/new">Buy Ticket</a>
+
+
+
+    <table>
+        <thead>
+         <th>Ticket</th>
+         <th>Seat</th> 
+        </thead>
+        <tbody>
+       
+        <% tickets.forEach(function(s) { %>
+                <tr>
+                    <td><%= s.seat %></td>
+                    <td><%= s.price %></td>
+                </tr>
+         <%   }) %>
+            
+        </tbody>
+    
+    </table>
 </body>
 </html>

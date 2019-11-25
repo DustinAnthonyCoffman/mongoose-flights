@@ -1,4 +1,5 @@
 var Flight = require('../models/flight');
+var Ticket = require('../models/ticket');
 
 function index(req,res) {
     Flight.find({}, function(err, flights) {  //finding all flights, call back is rendering page and giving it the flights data
@@ -21,20 +22,19 @@ function newFlight(req,res) {
     res.render('flights/new');          //res.render('views/')
 }
 
-function show(req,res) {
-    Flight.findById(req.params.id, function(err, flights) {
-        res.render('flights/show', { title: 'Flight Details', flights });
+function show(req,res) {            //this is a nested query, we find the flight and find the ticket associated with the flight and then make them both available for the view render
+    Flight.findById(req.params.id, function(err, flights) {  //flights is the result of our find
+        Ticket.find({flight: flights._id}, function(err, tickets) { //tickets is the result of our find
+            res.render('flights/show', { title: 'Flight Details', flights, tickets });
+        })
       });
     }
 
-function addDestination(req,res) {
 
-}
 
 module.exports = {
     create,
     new: newFlight,
-    update: addDestination,
     show,
     index
 }

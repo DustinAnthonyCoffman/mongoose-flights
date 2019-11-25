@@ -7,7 +7,8 @@ require('./config/flights');
 
 var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights');
-var detailsRouter = require('./routes/details');
+var destinationsRouter = require('./routes/destinations');
+var ticketsRouter = require('./routes/tickets');
 
 
 var app = express();
@@ -23,8 +24,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/flights', flightsRouter);
-app.use('/', detailsRouter);
+app.use('/flights', flightsRouter); //everything in the flights router starts with /flights
+app.use('/', destinationsRouter);  
+app.use('/', ticketsRouter);
 
 
 // catch 404 and forward to error handler
